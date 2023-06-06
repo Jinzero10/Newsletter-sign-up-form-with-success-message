@@ -1,0 +1,131 @@
+@font-face {
+    font-family:'Roboto';
+    src: url('assets/fonts/Roboto-Bold.ttf') format("truetype");
+    src: url('assets/fonts/Roboto-Regular.ttf') format("truetype");
+  }
+
+:root{
+    --primary-Tomato: hsl(4, 66%, 55%);
+    --p-tom: #f5754a;
+    --clr-neutral-Slate-Grey: hsl(234, 29%, 20%);
+    --clr-neutral-Charcoal-Grey: hsl(235, 18%, 26%);
+    --clr-neutral-Grey: hsl(231, 7%, 60%);
+    --clr-neutral-White: hsl(0, 0%, 100%);
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto';
+    font-size: 16px;
+}
+h1{
+    font-weight: 700;
+}
+p{
+    font-weight: 400;
+}
+input, .sub_btn, .btn_dismiss{
+    cursor: pointer;
+    padding: .9rem 1rem;
+    width: 21.5em;
+    border: 0;
+    margin-bottom: 1rem;
+    border-radius: 7px;
+}
+.sub_btn, .btn_dismiss{
+    color: var(--clr-neutral-White);
+    background-color: var(--clr-neutral-Slate-Grey);
+}
+.sub_btn:hover, .btn_dismiss:hover{
+    background: linear-gradient(to right, var(--primary-Tomato), var(--p-tom));
+}
+ul{
+    list-style-image: url('assets/images/icon-list.svg');
+}
+.image_container{
+    display: block;
+    background-image: url(assets/images/illustration-sign-up-mobile.svg);
+    background-size: contain;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 16rem;
+}
+.sub_title{
+    font-size: 3rem;
+    margin: 0;
+}
+.news_content{
+    padding-inline: 1rem;
+}
+.email_label{
+    display: block;
+    width: 21.5em;
+    position: relative;
+    font-weight: 700;
+    font-size: .7rem;
+}
+#email:invalid{
+    outline: 1px solid red;
+    color: red;
+}
+#error_message{
+   position: absolute;
+   color: red;
+   opacity: .8;
+   top: 0;
+   right: -2.6rem;
+}
+#success{
+    display: none;
+    padding: 1rem;
+}
+.btn_dismiss{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3rem;
+}
+
+@media (min-width:1000px) {
+    body{
+        margin: 0;
+        background-color: var(--clr-neutral-Charcoal-Grey);
+    }
+    main{
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+    }
+    #container, #success{
+        background-color: var(--clr-neutral-White);
+        border-radius: 20px;
+    }
+    #container{
+        display: grid;
+        max-width: 40rem;
+        grid-template-columns:1fr 1fr;
+        padding: 1rem;
+    }
+    .image_container{
+        background-image: url(assets/images/illustration-sign-up-desktop.svg);
+        background-position: 100%;
+        width: 18rem;
+        height: 100%;
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .news_content{
+        transform: scale(.9);
+    }
+    #success{
+        max-width: 20rem;
+        height: fit-content;
+    }
+    .btn_dismiss{
+        margin-top: 1rem;
+        position: static;
+        margin-bottom: 1rem;
+    }
+}

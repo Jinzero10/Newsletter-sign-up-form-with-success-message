@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+</head>
+<body>
+
+  <!-- Sign-up form start -->
+
+  <main>
+    <section id="container">
+      <div class="image_container">
+      </div>
+      <div class="news_content">
+        <h1>
+          Stay updated!
+        </h1>
+        <p>
+          Join 60,000+ product managers receiving monthly updates on:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Product discovery and building what matters
+            </p>
+          </li>
+          <li>
+            <p>
+              Measuring to ensure updates are a success
+            </p>
+          </li>
+          <li>
+            <p>
+              And much more!
+            </p>
+          </li>
+        </ul>
+        <div>
+          <div class="email_label">
+            Email address 
+            <div id="error_message"></div>
+          </div>
+          <input id="email" type="email" name="email" value="" placeholder="email@company.com">
+          <button class="sub_btn" type="submit" aria-label="Subscribe button" onclick="error();">
+            Subscribe to monthly newsletter
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sign-up form end -->
+
+    <!-- Success message start -->
+
+    <section id="success">
+      <div>
+        <img src="assets/images/icon-success.svg" alt="">
+      </div>
+      <div>
+        <h1 class="sub_title">
+          Thanks for subscribing!
+        </h1>
+        <p>
+          A confirmation email has been sent to <b><span id="email_name"></span></b>
+          Please open it and click the button inside to confirm your subscription.
+        </p>
+      </div>
+      <button class="btn_dismiss" aria-label="dimiss button" onclick="goBack();">
+        Dismiss message
+      </button>
+    </section>
+      <!-- Success message end -->
+  </main>
+  <script>
+    function error () {
+    const email = document.getElementById('email').value;
+    const emailInput = document.querySelector('input[name="email"]');
+    const isValidEmail = emailInput.checkValidity();
+
+
+    if (emailInput.value == '') {
+        document.getElementById('error_message').innerHTML = "Valid email required";
+    }else if(isValidEmail == false){
+        document.getElementById('error_message').innerHTML = "Check your email please.";
+    }else{
+      document.getElementById('container').style.display = "none";
+      document.getElementById('email_name').innerHTML = email + '.';
+      document.getElementById('success').style.display = "block";
+    }
+    };
+
+    function goBack() {
+       window.history.back();
+    }
+  </script>
+</body>
+</html>
